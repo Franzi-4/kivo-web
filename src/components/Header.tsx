@@ -84,16 +84,6 @@ const Header = () => {
                   >
                     <LayoutDashboard size={16} className="inline-block mr-1.5" /> Dashboard
                   </ToggleGroupItem>
-                  <ToggleGroupItem 
-                    value="pricing" 
-                    className={cn(
-                      "px-4 py-2 rounded-full transition-colors relative",
-                      activePage === 'pricing' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                    )}
-                    onClick={handleNavClick('pricing')}
-                  >
-                    <DollarSign size={16} className="inline-block mr-1.5" /> Pricing
-                  </ToggleGroupItem>
                 </>
               ) : null}
               <Link to="/blog">
@@ -134,15 +124,6 @@ const Header = () => {
                     onClick={handleNavClick('dashboard')}
                   >
                     <LayoutDashboard size={16} className="inline-block mr-1.5" /> Dashboard
-                  </a>
-                  <a 
-                    href="#pricing" 
-                    className={`px-3 py-2 text-sm rounded-md transition-colors ${
-                      activePage === 'pricing' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                    }`}
-                    onClick={handleNavClick('pricing')}
-                  >
-                    <DollarSign size={16} className="inline-block mr-1.5" /> Pricing
                   </a>
                 </>
               )}
