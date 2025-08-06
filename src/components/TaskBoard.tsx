@@ -1,8 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { BarChart3, TrendingUp } from 'lucide-react';
 import TaskColumn, { Column } from './TaskColumn';
 import { Task } from './TaskCard';
+import AnalyticsOverview from './AnalyticsOverview';
+import PerformanceMetrics from './PerformanceMetrics';
 
 // Initial data for the task board
 const initialColumns: Column[] = [
@@ -13,39 +18,30 @@ const initialColumns: Column[] = [
     tasks: [
       {
         id: 't1',
-        title: 'Update landing page hero section',
-        description: 'Review new design mockups and update copy',
-        tag: { color: 'purple', label: 'Design' },
-        dueDate: 'May 20',
+        title: 'Set up pricing experiment framework',
+        description: 'Design A/B logic for personalized in-game offers',
+        tag: { color: 'purple', label: 'Product' },
+        dueDate: 'Aug 10',
         assignees: 2,
-        progress: { completed: 3, total: 5 }
+        progress: { completed: 1, total: 5 }
       },
       {
         id: 't2',
-        title: 'Social media campaign planning',
-        description: 'Outline Q2 campaign goals and content calendar',
-        tag: { color: 'accent', label: 'Marketing' },
-        dueDate: 'May 22',
+        title: 'Define core segmentation logic',
+        description: 'Draft logic for behavioral cohorts (whales, casuals)',
+        tag: { color: 'accent', label: 'Data' },
+        dueDate: 'Aug 11',
         assignees: 1,
-        progress: { completed: 0, total: 4 }
+        progress: { completed: 0, total: 3 }
       },
       {
         id: 't3',
-        title: 'Set up automated testing',
-        description: 'Configure CI/CD pipeline for test automation',
-        tag: { color: 'blue', label: 'Development' },
-        dueDate: 'May 24',
+        title: 'Integrate SDK into test game',
+        description: 'Hook SDK into Unity demo for live pricing injection',
+        tag: { color: 'blue', label: 'Engineering' },
+        dueDate: 'Aug 12',
         assignees: 2,
         progress: { completed: 0, total: 6 }
-      },
-      {
-        id: 't4',
-        title: 'Create brand style guide',
-        description: 'Document colors, typography, and UI components',
-        tag: { color: 'purple', label: 'Design' },
-        dueDate: 'May 25',
-        assignees: 1,
-        progress: { completed: 0, total: 3 }
       }
     ]
   },
@@ -55,31 +51,31 @@ const initialColumns: Column[] = [
     color: 'blue',
     tasks: [
       {
-        id: 't5',
-        title: 'API integration with payment gateway',
-        description: 'Connect payment processor and test transactions',
-        tag: { color: 'blue', label: 'Development' },
-        dueDate: 'May 18',
+        id: 't4',
+        title: 'Price recommendation model (v1)',
+        description: 'Train initial version on synthetic player data',
+        tag: { color: 'accent', label: 'AI' },
+        dueDate: 'Aug 8',
         assignees: 1,
-        progress: { completed: 2, total: 3 }
+        progress: { completed: 3, total: 5 }
+      },
+      {
+        id: 't5',
+        title: 'Setup analytics dashboard',
+        description: 'Track offer views, purchases, and ARPU in real time',
+        tag: { color: 'blue', label: 'Engineering' },
+        dueDate: 'Aug 9',
+        assignees: 1,
+        progress: { completed: 2, total: 4 }
       },
       {
         id: 't6',
-        title: 'SEO optimization',
-        description: 'Improve meta descriptions and keywords across site',
-        tag: { color: 'accent', label: 'Marketing' },
-        dueDate: 'May 19',
-        assignees: 2,
-        progress: { completed: 5, total: 8 }
-      },
-      {
-        id: 't7',
-        title: 'Mobile responsive design',
-        description: 'Optimize UI for tablets and mobile devices',
-        tag: { color: 'purple', label: 'Design' },
-        dueDate: 'May 17',
+        title: 'Partnership outreach',
+        description: 'Send pitch deck to 10 studios for pilot testing',
+        tag: { color: 'accent', label: 'BD' },
+        dueDate: 'Aug 10',
         assignees: 1,
-        progress: { completed: 3, total: 4 }
+        progress: { completed: 4, total: 10 }
       }
     ]
   },
@@ -89,31 +85,22 @@ const initialColumns: Column[] = [
     color: 'amber',
     tasks: [
       {
+        id: 't7',
+        title: 'Landing page V2',
+        description: 'Review new positioning and copy based on feedback',
+        tag: { color: 'purple', label: 'Design' },
+        dueDate: 'Aug 6',
+        assignees: 2,
+        progress: { completed: 2, total: 2 }
+      },
+      {
         id: 't8',
-        title: 'Email newsletter content',
-        description: 'Review draft and provide feedback',
-        tag: { color: 'accent', label: 'Marketing' },
-        dueDate: 'May 15',
+        title: 'Offer pacing logic',
+        description: 'Check cooldown system to avoid pricing fatigue',
+        tag: { color: 'blue', label: 'Engineering' },
+        dueDate: 'Aug 6',
         assignees: 1,
         progress: { completed: 4, total: 5 }
-      },
-      {
-        id: 't9',
-        title: 'User authentication system',
-        description: 'Code review for login and registration flows',
-        tag: { color: 'blue', label: 'Development' },
-        dueDate: 'May 16',
-        assignees: 2,
-        progress: { completed: 6, total: 6 }
-      },
-      {
-        id: 't10',
-        title: 'Icon set redesign',
-        description: 'Review updated icon set for consistent branding',
-        tag: { color: 'purple', label: 'Design' },
-        dueDate: 'May 14',
-        assignees: 1,
-        progress: { completed: 12, total: 12 }
       }
     ]
   },
@@ -123,31 +110,31 @@ const initialColumns: Column[] = [
     color: 'accent',
     tasks: [
       {
-        id: 't11',
-        title: 'Create user flow diagrams',
-        description: 'Document onboarding process for new users',
-        tag: { color: 'purple', label: 'Design' },
-        dueDate: 'May 10',
+        id: 't9',
+        title: 'Built internal test game (Kivo Play)',
+        description: 'Prototype game used to test pricing algorithms',
+        tag: { color: 'blue', label: 'Engineering' },
+        dueDate: 'Aug 1',
         assignees: 1,
+        progress: { completed: 8, total: 8 }
+      },
+      {
+        id: 't10',
+        title: 'Monetization audit',
+        description: 'Mapped monetization flows in 5 competitor games',
+        tag: { color: 'accent', label: 'Research' },
+        dueDate: 'July 30',
+        assignees: 2,
         progress: { completed: 5, total: 5 }
       },
       {
-        id: 't12',
-        title: 'Setup analytics tracking',
-        description: 'Implement event tracking across main user flows',
-        tag: { color: 'blue', label: 'Development' },
-        dueDate: 'May 9',
+        id: 't11',
+        title: 'Implemented base SDK wrapper',
+        description: 'Abstracted offer logic and price injection hooks',
+        tag: { color: 'blue', label: 'Engineering' },
+        dueDate: 'Aug 2',
         assignees: 1,
         progress: { completed: 4, total: 4 }
-      },
-      {
-        id: 't13',
-        title: 'Competitive analysis report',
-        description: 'Research competitors and document findings',
-        tag: { color: 'accent', label: 'Marketing' },
-        dueDate: 'May 8',
-        assignees: 2,
-        progress: { completed: 7, total: 7 }
       }
     ]
   }
@@ -155,12 +142,14 @@ const initialColumns: Column[] = [
 
 interface TaskBoardProps {
   className?: string;
+  showAnalytics?: boolean;
 }
 
-const TaskBoard: React.FC<TaskBoardProps> = ({ className }) => {
+const TaskBoard: React.FC<TaskBoardProps> = ({ className, showAnalytics = true }) => {
   const [columns, setColumns] = useState<Column[]>(initialColumns);
   const [draggedTask, setDraggedTask] = useState<Task | null>(null);
   const [dragSourceColumn, setDragSourceColumn] = useState<string | null>(null);
+  const [activeAnalyticsTab, setActiveAnalyticsTab] = useState("overview");
   const { toast } = useToast();
 
   const handleTaskDragStart = (e: React.DragEvent, task: Task) => {
@@ -242,19 +231,58 @@ const TaskBoard: React.FC<TaskBoardProps> = ({ className }) => {
   };
 
   return (
-    <div className={`flex gap-4 overflow-x-auto pb-4 ${className}`}>
-      {columns.map(column => (
-        <TaskColumn
-          key={column.id}
-          column={column}
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
-          onTaskDragStart={handleTaskDragStart}
-          onTaskDragEnd={handleTaskDragEnd}
-          onStatusChange={handleStatusChange}
-        />
-      ))}
+    <div className={`space-y-6 ${className}`}>
+      {/* Analytics Dashboards */}
+      {showAnalytics && (
+        <div className="w-full">
+          <Tabs value={activeAnalyticsTab} onValueChange={setActiveAnalyticsTab} className="w-full">
+            <div className="flex items-center justify-between mb-8">
+              <TabsList className="grid w-auto grid-cols-2 bg-muted/50">
+                <TabsTrigger value="overview" className="flex items-center gap-2 data-[state=active]:bg-background">
+                  <BarChart3 className="h-4 w-4" />
+                  Analytics Overview
+                </TabsTrigger>
+                <TabsTrigger value="performance" className="flex items-center gap-2 data-[state=active]:bg-background">
+                  <TrendingUp className="h-4 w-4" />
+                  Performance Metrics
+                </TabsTrigger>
+              </TabsList>
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="border-muted-foreground/20 text-muted-foreground hover:bg-muted/30"
+                onClick={() => setActiveAnalyticsTab(activeAnalyticsTab === "overview" ? "performance" : "overview")}
+              >
+                Switch View
+              </Button>
+            </div>
+            
+            <TabsContent value="overview" className="mt-0">
+              <AnalyticsOverview />
+            </TabsContent>
+            
+            <TabsContent value="performance" className="mt-0">
+              <PerformanceMetrics />
+            </TabsContent>
+          </Tabs>
+        </div>
+      )}
+      
+      {/* Task Board Columns */}
+      <div className="flex gap-6 overflow-x-auto pb-6">
+        {columns.map(column => (
+          <TaskColumn
+            key={column.id}
+            column={column}
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onTaskDragStart={handleTaskDragStart}
+            onTaskDragEnd={handleTaskDragEnd}
+            onStatusChange={handleStatusChange}
+          />
+        ))}
+      </div>
     </div>
   );
 };

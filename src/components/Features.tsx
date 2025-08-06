@@ -1,59 +1,39 @@
 
 import React, { useState } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ChevronDown, Layers, Grid3x3, ListCheck, BookOpen, Star, LayoutDashboard } from "lucide-react";
+import { ChevronDown, Sliders, BarChart2, ShieldCheck, PlugZap } from "lucide-react";
 
 const Features = () => {
   const [openFeature, setOpenFeature] = useState<number | null>(null);
   
   const features = [
     {
-      title: "Payment Automation",
-      description: "Automate payment processing and reconciliation to reduce manual errors and improve efficiency.",
-      expandedDescription: "Set up automated payment workflows with custom approval chains. Schedule recurring payments, automate invoice processing, and create conditional rules for different transaction types. Reduce manual intervention and ensure compliance with financial regulations.",
-      icon: (
-        <Layers size={24} className="text-cosmic-accent" />
-      )
+      title: "Dynamic Pricing Engine",
+      description: "Optimize every offer in real time based on player behavior and context.",
+      expandedDescription:
+        "Leverage AI to deliver personalized in-game pricing for each player. Our engine analyzes behavioral data, purchase history, and in-game context to serve the right price at the right time. Boost conversion rates and maximize revenue without compromising player experience.",
+      icon: <Sliders size={24} className="text-cosmic-accent" />
     },
     {
-      title: "Real-time Analytics",
-      description: "Monitor financial performance with real-time dashboards and comprehensive reporting.",
-      expandedDescription: "Track key financial metrics with customizable dashboards. Monitor cash flow, payment volumes, and transaction success rates in real-time. Generate detailed reports for stakeholders and identify trends before they impact your business.",
-      icon: (
-        <Grid3x3 size={24} className="text-cosmic-accent" />
-      )
+      title: "Player Segmentation",
+      description: "Identify high-value players and tailor monetization strategies accordingly.",
+      expandedDescription:
+        "Automatically segment your player base into behavior-driven cohorts. Target whales, mid-spenders, and non-payers with different pricing strategies. Our system updates segments in real time, so your monetization always adapts to player evolution.",
+      icon: <BarChart2 size={24} className="text-cosmic-accent" />
     },
     {
-      title: "Risk Management",
-      description: "Advanced fraud detection and risk assessment tools to protect your business.",
-      expandedDescription: "Utilize machine learning algorithms to detect suspicious transactions and prevent fraud. Set up custom risk rules, monitor transaction patterns, and receive instant alerts for unusual activity. Protect your business with enterprise-grade security measures.",
-      icon: (
-        <LayoutDashboard size={24} className="text-cosmic-accent" />
-      )
+      title: "Revenue Protection",
+      description: "Avoid churn and pricing fatigue with smart offer pacing and controls.",
+      expandedDescription:
+        "Prevent overexposure to offers and avoid aggressive pricing with our built-in pacing logic. Kivo's safeguards ensure monetization strategies remain sustainable and engaging, reducing churn and protecting long-term revenue.",
+      icon: <ShieldCheck size={24} className="text-cosmic-accent" />
     },
     {
-      title: "Compliance Tools",
-      description: "Built-in compliance features to meet regulatory requirements effortlessly.",
-      expandedDescription: "Stay compliant with financial regulations across multiple jurisdictions. Automated KYC/AML checks, transaction monitoring, and regulatory reporting. Generate audit trails and maintain documentation to meet compliance standards.",
-      icon: (
-        <ListCheck size={24} className="text-cosmic-accent" />
-      )
-    },
-    {
-      title: "Multi-currency Support",
-      description: "Process payments in multiple currencies with real-time exchange rates.",
-      expandedDescription: "Accept and process payments in over 150 currencies with competitive exchange rates. Automatic currency conversion, hedging tools, and multi-currency accounting. Expand your business globally with seamless international payment processing.",
-      icon: (
-        <Star size={24} className="text-cosmic-accent" />
-      )
-    },
-    {
-      title: "API Integration",
-      description: "Powerful APIs for seamless integration with your existing financial systems.",
-      expandedDescription: "Connect with your ERP, accounting software, and banking systems through our comprehensive APIs. Real-time webhooks, detailed documentation, and SDKs for popular programming languages. Build custom integrations that fit your unique business needs.",
-      icon: (
-        <BookOpen size={24} className="text-cosmic-accent" />
-      )
+      title: "Plug-and-Play Integration",
+      description: "Integrate in days, not weeks—with minimal engineering effort.",
+      expandedDescription:
+        "Drop our SDK into your existing monetization stack and go live in no time. Kivo plays well with Unity, Unreal, and custom engines. You get full control over triggers, experiments, and offer logic while we handle the heavy lifting.",
+      icon: <PlugZap size={24} className="text-cosmic-accent" />
     }
   ];
   
@@ -73,7 +53,7 @@ const Features = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {features.map((feature, index) => (
             <Collapsible
               key={index}
