@@ -45,12 +45,12 @@ const Features = () => {
     <section id="features" className="w-full py-12 md:py-16 px-6 md:px-12">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center space-y-3 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tighter">
-            Everything your business needs
-          </h2>
-          <p className="text-cosmic-muted text-lg">
-            Comprehensive fintech solutions to streamline your financial operations and drive growth
-          </p>
+        <h2 className="text-3xl font-bold tracking-tight text-foreground">
+  Monetization made for modern game studios
+</h2>
+<p className="text-cosmic-muted text-lg">
+  Powerful AI tools to personalize offers, optimize pricing, and maximize revenue—without compromising player experience.
+</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
