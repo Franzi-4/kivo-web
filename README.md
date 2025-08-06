@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Cosmos Tasks - Modern Task Management Platform
 
 ## Project info
 
