@@ -97,17 +97,6 @@ const Header = () => {
                   <BookOpen size={16} className="inline-block mr-1.5" /> Blog
                 </ToggleGroupItem>
               </Link>
-              <Link to="/demo">
-                <ToggleGroupItem 
-                  value="demo"
-                  className={cn(
-                    "px-4 py-2 rounded-full transition-colors relative",
-                    location.pathname === '/demo' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                  )}
-                >
-                  <DollarSign size={16} className="inline-block mr-1.5" /> Book Demo
-                </ToggleGroupItem>
-              </Link>
             </ToggleGroup>
           </div>
         </nav>
@@ -146,15 +135,6 @@ const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <BookOpen size={16} className="inline-block mr-1.5" /> Blog
-              </Link>
-              <Link 
-                to="/demo" 
-                className={`px-3 py-2 text-sm rounded-md transition-colors ${
-                  location.pathname === '/demo' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <DollarSign size={16} className="inline-block mr-1.5" /> Book Demo
               </Link>
               
               {/* Add theme toggle for mobile */}
