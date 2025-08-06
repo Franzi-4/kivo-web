@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="md:col-span-2 space-y-6">
             <Logo />
             <p className="text-muted-foreground max-w-xs">
-              Modern task management for teams that value clarity, focus, and results.
+              AI-powered in-game monetization for studios that value precision, performance, and player experience
             </p>
             <div className="flex items-center gap-4">
               <a href="#" className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors">

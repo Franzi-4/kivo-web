@@ -1,13 +1,15 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BarChart3, TrendingUp } from 'lucide-react';
+import { BarChart3, TrendingUp, Loader } from 'lucide-react';
 import TaskColumn, { Column } from './TaskColumn';
 import { Task } from './TaskCard';
-import AnalyticsOverview from './AnalyticsOverview';
-import PerformanceMetrics from './PerformanceMetrics';
+
+// Lazy load analytics components
+const AnalyticsOverview = lazy(() => import('./AnalyticsOverview'));
+const PerformanceMetrics = lazy(() => import('./PerformanceMetrics'));
 
 // Initial data for the task board
 const initialColumns: Column[] = [
@@ -258,11 +260,23 @@ const TaskBoard: React.FC<TaskBoardProps> = ({ className, showAnalytics = true }
             </div>
             
             <TabsContent value="overview" className="mt-0">
-              <AnalyticsOverview />
+              <Suspense fallback={
+                <div className="flex items-center justify-center h-64 bg-card rounded-lg border">
+                  <Loader className="h-6 w-6 animate-spin text-muted-foreground" />
+                </div>
+              }>
+                <AnalyticsOverview />
+              </Suspense>
             </TabsContent>
             
             <TabsContent value="performance" className="mt-0">
-              <PerformanceMetrics />
+              <Suspense fallback={
+                <div className="flex items-center justify-center h-64 bg-card rounded-lg border">
+                  <Loader className="h-6 w-6 animate-spin text-muted-foreground" />
+                </div>
+              }>
+                <PerformanceMetrics />
+              </Suspense>
             </TabsContent>
           </Tabs>
         </div>

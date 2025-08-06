@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Button } from '@/components/ui/button';
-import TaskBoard from './TaskBoard';
 import { Loader } from 'lucide-react';
+
+// Lazy load TaskBoard component
+const TaskBoard = lazy(() => import('./TaskBoard'));
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -152,7 +154,13 @@ const HeroSection = () => {
                 
                 {/* Kanban Board */}
                 <div className="overflow-hidden">
-                  <TaskBoard />
+                  <Suspense fallback={
+                    <div className="flex items-center justify-center h-96 bg-card rounded-lg border">
+                      <Loader className="h-6 w-6 animate-spin text-muted-foreground" />
+                    </div>
+                  }>
+                    <TaskBoard />
+                  </Suspense>
                 </div>
               </div>
             </div>
