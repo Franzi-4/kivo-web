@@ -102,9 +102,9 @@ const Blog = () => {
               Back to Home
             </Link>
 
-            <h1 className="text-4xl md:text-6xl mb-6 text-balance font-light">
+            <h1 className="text-4xl md:text-6xl mb-6 text-balance font-medium">
               Game Monetization
-              <span className="block text-primary font-light">Insights & Tactics</span>
+              <span className="block text-primary font-medium">Insights & Tactics</span>
             </h1>
 
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
