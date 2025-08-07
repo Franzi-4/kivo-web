@@ -56,20 +56,20 @@ const AnalyticsOverview = () => {
 
   return (
     <div className="space-y-6">
-      {/* Four KPI Cards */}
+      {/* Four Gaming KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {metrics.map((metric, index) => (
-          <Card key={index} className="cosmic-gradient border-cosmic-light/20">
+          <Card key={index} className="bg-card border border-border hover:bg-muted/30 transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-cosmic-muted">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
                 {metric.title}
               </CardTitle>
-              <div className="text-cosmic-accent">
+              <div className="text-primary">
                 {metric.icon}
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{metric.value}</div>
+              <div className="text-2xl font-bold text-foreground">{metric.value}</div>
               <div className="flex items-center gap-1 mt-1">
                 <TrendingUp className="h-3 w-3 text-green-500" />
                 <span className="text-xs text-green-500">{metric.change}</span>
@@ -82,10 +82,10 @@ const AnalyticsOverview = () => {
       {/* Two Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Revenue Trend Chart */}
-        <Card className="cosmic-gradient border-cosmic-light/20">
+        <Card className="bg-card border border-border">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5 text-cosmic-accent" />
+            <CardTitle className="flex items-center gap-2 text-foreground">
+              <TrendingUp className="h-5 w-5 text-primary" />
               Revenue Trend
             </CardTitle>
             <CardDescription>
@@ -142,10 +142,10 @@ const AnalyticsOverview = () => {
         </Card>
 
         {/* Player Segments Pie Chart */}
-        <Card className="cosmic-gradient border-cosmic-light/20">
+        <Card className="bg-card border border-border">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Users className="h-5 w-5 text-cosmic-accent" />
+            <CardTitle className="flex items-center gap-2 text-foreground">
+              <Users className="h-5 w-5 text-primary" />
               Revenue by Segment
             </CardTitle>
             <CardDescription>
@@ -190,9 +190,9 @@ const AnalyticsOverview = () => {
                       className="w-3 h-3 rounded-full" 
                       style={{ backgroundColor: COLORS[index] }}
                     />
-                    <span className="text-sm">{segment.name}</span>
+                    <span className="text-sm text-foreground">{segment.name}</span>
                   </div>
-                  <span className="text-sm font-medium">${segment.value.toLocaleString()}</span>
+                  <span className="text-sm font-medium text-foreground">${segment.value.toLocaleString()}</span>
                 </div>
               ))}
             </div>
