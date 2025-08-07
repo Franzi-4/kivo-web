@@ -56,7 +56,7 @@ const AnalyticsOverview = () => {
 
       <div className="relative overflow-hidden" style={{ height: '200px' }}>
         <Card className="cosmic-gradient border-cosmic-light/20 absolute bottom-0 w-full">
-          <CardHeader>
+          <CardHeader className="relative z-10">
             <CardTitle className="flex items-center gap-2">
               <BarChart3 className="h-5 w-5 text-cosmic-accent" />
               Revenue Analytics
@@ -65,9 +65,9 @@ const AnalyticsOverview = () => {
               Track your monetization performance across different player segments
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="relative">
             <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 opacity-40">
                 <div className="p-4 rounded-lg bg-cosmic-light/5 border border-cosmic-light/10">
                   <h4 className="font-medium mb-2">Whales (Top 1%)</h4>
                   <div className="text-2xl font-bold text-cosmic-accent">$89,234</div>
@@ -85,6 +85,8 @@ const AnalyticsOverview = () => {
                 </div>
               </div>
             </div>
+            {/* Gradient overlay to fade out the bottom content */}
+            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-cosmic-darker to-transparent pointer-events-none"></div>
           </CardContent>
         </Card>
       </div>

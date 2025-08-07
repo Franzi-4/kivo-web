@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import TaskBoard from './TaskBoard';
 
 const DashboardPreview = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -143,8 +142,20 @@ const DashboardPreview = () => {
                   </div>
                 </div>
                 
-                {/* Kanban Board - replaced static implementation with TaskBoard component */}
-                <TaskBoard className="h-[400px]" />
+                {/* Dashboard Content Placeholder */}
+                <div className="h-[400px] bg-cosmic-light/5 rounded-lg border border-cosmic-light/10 flex items-center justify-center">
+                  <div className="text-center space-y-4">
+                    <div className="h-12 w-12 rounded-full bg-cosmic-accent/20 flex items-center justify-center mx-auto">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-white font-medium">Dashboard Ready</h4>
+                      <p className="text-cosmic-muted text-sm">Your analytics and metrics will appear here</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

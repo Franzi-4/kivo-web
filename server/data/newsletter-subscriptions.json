@@ -1,0 +1,17 @@
+[
+  {
+    "id": "1754556629186",
+    "email": "test@example.com",
+    "source": "test",
+    "subscribedAt": "2025-08-07T08:50:29.187Z",
+    "status": "unsubscribed",
+    "unsubscribedAt": "2025-08-07T08:51:35.093Z"
+  },
+  {
+    "id": "1754556680449",
+    "email": "user@example.com",
+    "source": "book-demo",
+    "subscribedAt": "2025-08-07T08:51:20.449Z",
+    "status": "active"
+  }
+]

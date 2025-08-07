@@ -1,9 +1,6 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Loader } from 'lucide-react';
-
-// Lazy load TaskBoard component
-const TaskBoard = lazy(() => import('./TaskBoard'));
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -152,15 +149,22 @@ const HeroSection = () => {
                   </div>
                 </div>
                 
-                {/* Kanban Board */}
+                {/* Analytics Dashboard Placeholder */}
                 <div className="overflow-hidden">
-                  <Suspense fallback={
-                    <div className="flex items-center justify-center h-96 bg-card rounded-lg border">
-                      <Loader className="h-6 w-6 animate-spin text-muted-foreground" />
+                  <div className="h-96 bg-card rounded-lg border flex items-center justify-center">
+                    <div className="text-center space-y-4">
+                      <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center mx-auto">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3 3V21H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M9 9L12 6L16 10L21 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="text-foreground font-medium">Analytics Dashboard</h4>
+                        <p className="text-muted-foreground text-sm">Real-time pricing analytics and insights</p>
+                      </div>
                     </div>
-                  }>
-                    <TaskBoard />
-                  </Suspense>
+                  </div>
                 </div>
               </div>
             </div>
