@@ -47,12 +47,12 @@ const AnalyticsOverview = () => {
 
   // Player segment data
   const segmentData = [
-    { name: 'Whales (1%)', value: 89234, percentage: 71, color: '#10b981' },
-    { name: 'Mid-Spenders (5%)', value: 24891, percentage: 20, color: '#3b82f6' },
-    { name: 'Casual (94%)', value: 10767, percentage: 9, color: '#f59e0b' }
+    { name: 'Whales (1%)', value: 45000, percentage: 36, color: '#6b7280' },
+    { name: 'Mid-Spenders (5%)', value: 52000, percentage: 42, color: '#9ca3af' },
+    { name: 'Casual (94%)', value: 27892, percentage: 22, color: '#d1d5db' }
   ];
 
-  const COLORS = ['#10b981', '#3b82f6', '#f59e0b'];
+  const COLORS = ['#6b7280', '#9ca3af', '#d1d5db'];
 
   return (
     <div className="space-y-6">
@@ -161,7 +161,7 @@ const AnalyticsOverview = () => {
                     cx="50%"
                     cy="50%"
                     labelLine={false}
-                    label={({ name, percentage }) => `${name} (${percentage}%)`}
+                    label={({ name }) => name}
                     outerRadius={80}
                     fill="#8884d8"
                     dataKey="value"
