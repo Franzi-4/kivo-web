@@ -1,5 +1,9 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
+import { Loader } from 'lucide-react';
+
+// Lazy load AnalyticsOverview component
+const AnalyticsOverview = lazy(() => import('./AnalyticsOverview'));
 
 const DashboardPreview = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,10 +37,10 @@ const DashboardPreview = () => {
           }`}
         >
           <h2 className="text-3xl md:text-4xl font-medium tracking-tighter">
-            Intuitive task management interface
+            Powerful analytics dashboard
           </h2>
           <p className="text-cosmic-muted text-lg">
-            A powerful dashboard that adapts to how your team works
+            Real-time insights with interactive charts and key performance metrics
           </p>
         </div>
         
@@ -45,7 +49,7 @@ const DashboardPreview = () => {
             isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
-          {/* Mock Dashboard */}
+          {/* Analytics Dashboard */}
           <div className="bg-cosmic-darker/80 backdrop-blur-md w-full">
             {/* Dashboard Header */}
             <div className="flex items-center justify-between p-4 border-b border-cosmic-light/10">
@@ -53,7 +57,7 @@ const DashboardPreview = () => {
                 <div className="h-8 w-8 rounded-md bg-cosmic-light/20 flex items-center justify-center">
                   <div className="h-3 w-3 rounded-sm bg-cosmic-accent"></div>
                 </div>
-                <span className="text-white font-medium">Marketing Campaign Q2</span>
+                <span className="text-white font-medium">Analytics Dashboard</span>
               </div>
               
               <div className="flex items-center gap-3">
@@ -65,98 +69,26 @@ const DashboardPreview = () => {
                 </div>
                 
                 <div className="h-8 px-3 rounded-md bg-cosmic-light/10 flex items-center justify-center text-white text-sm">
-                  Share
+                  Export
                 </div>
               </div>
             </div>
             
             {/* Dashboard Content */}
-            <div className="flex h-[500px] overflow-hidden">
-              {/* Sidebar */}
-              <div className="w-64 border-r border-cosmic-light/10 p-4 space-y-4">
-                <div className="space-y-2">
-                  <div className="text-xs text-cosmic-muted uppercase">Navigation</div>
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md bg-cosmic-light/10 text-white">
-                      <div className="h-3 w-3 rounded-sm bg-cosmic-accent"></div>
-                      <span>Board</span>
-                    </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
-                      <span>Timeline</span>
-                    </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
-                      <span>Calendar</span>
-                    </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-sm bg-cosmic-muted/30"></div>
-                      <span>Files</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="space-y-2 pt-4">
-                  <div className="text-xs text-cosmic-muted uppercase">Teams</div>
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-full bg-cosmic-accent/80"></div>
-                      <span>Marketing</span>
-                    </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-full bg-purple-400/80"></div>
-                      <span>Design</span>
-                    </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-md text-cosmic-muted hover:bg-cosmic-light/5">
-                      <div className="h-3 w-3 rounded-full bg-blue-400/80"></div>
-                      <span>Development</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Main Content */}
-              <div className="flex-1 p-4">
-                {/* Board Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-medium">Tasks</h3>
-                    <span className="text-xs bg-cosmic-light/20 px-2 py-1 rounded-full text-cosmic-muted">23</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-md bg-cosmic-light/10 flex items-center justify-center text-cosmic-muted">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 12V12.01M8 12V12.01M16 12V12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <div className="h-8 w-8 rounded-md bg-cosmic-light/10 flex items-center justify-center text-cosmic-muted">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17 9L17 17H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M17 17L7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <div className="h-8 px-3 rounded-md bg-cosmic-accent text-cosmic-darker flex items-center justify-center text-sm font-medium">
-                      New Task
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Dashboard Content Placeholder */}
-                <div className="h-[400px] bg-cosmic-light/5 rounded-lg border border-cosmic-light/10 flex items-center justify-center">
+            <div className="p-6">
+              <Suspense fallback={
+                <div className="flex items-center justify-center h-96 bg-cosmic-light/5 rounded-lg border border-cosmic-light/10">
                   <div className="text-center space-y-4">
-                    <div className="h-12 w-12 rounded-full bg-cosmic-accent/20 flex items-center justify-center mx-auto">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
+                    <Loader className="h-8 w-8 animate-spin text-cosmic-accent mx-auto" />
                     <div className="space-y-2">
-                      <h4 className="text-white font-medium">Dashboard Ready</h4>
-                      <p className="text-cosmic-muted text-sm">Your analytics and metrics will appear here</p>
+                      <h4 className="text-white font-medium">Loading Analytics</h4>
+                      <p className="text-cosmic-muted text-sm">Preparing your dashboard...</p>
                     </div>
                   </div>
                 </div>
-              </div>
+              }>
+                <AnalyticsOverview />
+              </Suspense>
             </div>
           </div>
         </div>

@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Button } from '@/components/ui/button';
 import { Loader } from 'lucide-react';
+
+// Lazy load AnalyticsOverview component
+const AnalyticsOverview = lazy(() => import('./AnalyticsOverview'));
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -149,22 +152,21 @@ const HeroSection = () => {
                   </div>
                 </div>
                 
-                {/* Analytics Dashboard Placeholder */}
+                {/* Analytics Dashboard */}
                 <div className="overflow-hidden">
-                  <div className="h-96 bg-card rounded-lg border flex items-center justify-center">
-                    <div className="text-center space-y-4">
-                      <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center mx-auto">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M3 3V21H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          <path d="M9 9L12 6L16 10L21 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </div>
-                      <div className="space-y-2">
-                        <h4 className="text-foreground font-medium">Analytics Dashboard</h4>
-                        <p className="text-muted-foreground text-sm">Real-time pricing analytics and insights</p>
+                  <Suspense fallback={
+                    <div className="h-96 bg-card rounded-lg border flex items-center justify-center">
+                      <div className="text-center space-y-4">
+                        <Loader className="h-8 w-8 animate-spin text-muted-foreground mx-auto" />
+                        <div className="space-y-2">
+                          <h4 className="text-foreground font-medium">Loading Analytics</h4>
+                          <p className="text-muted-foreground text-sm">Preparing your dashboard...</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  }>
+                    <AnalyticsOverview />
+                  </Suspense>
                 </div>
               </div>
             </div>
