@@ -15,7 +15,7 @@ const Imprint = () => {
                 Imprint
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Legal information and company details
+                Legal disclosure in accordance with § 5 TMG
               </p>
             </div>
             
@@ -27,10 +27,10 @@ const Imprint = () => {
                   <div className="space-y-4">
                     <h3 className="text-lg font-medium">Company Details</h3>
                     <div className="space-y-2 text-muted-foreground">
-                      <p><strong className="text-foreground">Company Name:</strong> Cosmos Tasks GmbH</p>
-                      <p><strong className="text-foreground">Registration Number:</strong> HRB 123456</p>
-                      <p><strong className="text-foreground">VAT ID:</strong> DE123456789</p>
-                      <p><strong className="text-foreground">Commercial Register:</strong> Amtsgericht Berlin</p>
+                      <p><strong className="text-foreground">Company Name:</strong> Styx Ventures UG (haftungsbeschränkt)</p>
+                      <p><strong className="text-foreground">Registration Number:</strong> HRB [Your Number]</p>
+                      <p><strong className="text-foreground">VAT ID:</strong> DE[Your VAT Number]</p>
+                      <p><strong className="text-foreground">Commercial Register:</strong> Amtsgericht Berlin (Charlottenburg)</p>
                     </div>
                   </div>
                   
@@ -38,13 +38,13 @@ const Imprint = () => {
                     <h3 className="text-lg font-medium">Contact Information</h3>
                     <div className="space-y-2 text-muted-foreground">
                       <p><strong className="text-foreground">Address:</strong><br />
-                        Cosmos Tasks GmbH<br />
-                        Muster Straße 123<br />
-                        10115 Berlin<br />
+                        Styx Ventures UG (haftungsbeschränkt)<br />
+                        Alte Landstraße 29<br />
+                        53902 Bad Münstereifel<br />
                         Germany
                       </p>
-                      <p><strong className="text-foreground">Email:</strong> legal@cosmostasks.com</p>
-                      <p><strong className="text-foreground">Phone:</strong> +49 30 12345678</p>
+                      <p><strong className="text-foreground">Email:</strong> legal@styxventures.com</p>
+                      <p><strong className="text-foreground">Phone:</strong> +49 [Your Phone Number]</p>
                     </div>
                   </div>
                 </div>
@@ -53,10 +53,9 @@ const Imprint = () => {
               <div className="bg-card border border-border rounded-2xl p-8 space-y-6">
                 <h2 className="text-2xl font-semibold mb-4">Management</h2>
                 <div className="space-y-2 text-muted-foreground">
-                  <p><strong className="text-foreground">Managing Directors:</strong></p>
+                  <p><strong className="text-foreground">Managing Director:</strong></p>
                   <ul className="list-disc list-inside ml-4 space-y-1">
-                    <li>Max Mustermann</li>
-                    <li>Anna Schmidt</li>
+                    <li>Franziska Harzheim</li>
                   </ul>
                 </div>
               </div>
@@ -65,10 +64,10 @@ const Imprint = () => {
                 <h2 className="text-2xl font-semibold mb-4">Responsible for Content</h2>
                 <div className="space-y-2 text-muted-foreground">
                   <p><strong className="text-foreground">According to § 55 Abs. 2 RStV:</strong></p>
-                  <p>Max Mustermann<br />
-                    Cosmos Tasks GmbH<br />
-                    Muster Straße 123<br />
-                    10115 Berlin<br />
+                  <p>Franziska Harzheim<br />
+                    Styx Ventures UG (haftungsbeschränkt)<br />
+                    Alte Landstraße 29<br />
+                    53902 Bad Münstereifel<br />
                     Germany
                   </p>
                 </div>
@@ -80,28 +79,27 @@ const Imprint = () => {
                   <div>
                     <h3 className="text-lg font-medium text-foreground mb-2">Liability for Content</h3>
                     <p>
-                      As service providers, we are liable for own contents of these websites according to Sec. 7, 
-                      paragraph 1 of the TMG (Telemediengesetz – Tele Media Act by German law). However, according 
-                      to Sec. 8 to 10 of the TMG, we as service providers are under no obligation to monitor 
-                      submitted or stored information or to research circumstances pointing to illegal activity.
+                      As a service provider, we are responsible for our own content on these pages according to § 7 (1) TMG. 
+                      According to §§ 8 to 10 TMG, we are not obligated to monitor transmitted or stored third-party information 
+                      or to investigate circumstances that indicate illegal activity.
                     </p>
                   </div>
                   
                   <div>
                     <h3 className="text-lg font-medium text-foreground mb-2">Liability for Links</h3>
                     <p>
-                      Our offer includes links to external third party websites. We have no influence on the 
-                      contents of those websites, therefore we cannot guarantee for those contents. Providers 
-                      or administrators of linked websites are always responsible for their own contents.
+                      Our website contains links to external websites of third parties, on whose contents we have no influence. 
+                      Therefore, we cannot accept any liability for these external contents. The respective provider or operator 
+                      of the linked sites is always responsible for the content of those sites.
                     </p>
                   </div>
                   
                   <div>
                     <h3 className="text-lg font-medium text-foreground mb-2">Copyright</h3>
                     <p>
-                      Contents and compilations published on these websites by the providers are subject to 
-                      German copyright laws. Reproduction, editing, distribution as well as the use of any kind 
-                      outside the scope of the copyright law require a written permission of the author or originator.
+                      The content and works created by the site operators on these pages are subject to German copyright law. 
+                      Reproduction, processing, distribution and any kind of exploitation outside the limits of copyright 
+                      require the written consent of the respective author or creator.
                     </p>
                   </div>
                 </div>
@@ -111,13 +109,12 @@ const Imprint = () => {
                 <h2 className="text-2xl font-semibold mb-4">Data Protection</h2>
                 <div className="text-muted-foreground">
                   <p>
-                    The use of our website is usually possible without providing personal information. 
-                    As far as personal data (e.g. name, address or email addresses) are collected on our 
-                    pages, this always happens on a voluntary basis, as far as possible. This data will 
-                    not be passed on to third parties without your express consent.
+                    You can use our website without providing personal data as far as possible. If personal data 
+                    (such as name, address or email address) is collected on our site, it is always done on a voluntary basis. 
+                    This data will not be disclosed to third parties without your explicit consent.
                   </p>
                   <p className="mt-4">
-                    For detailed information about data protection, please refer to our Privacy Policy.
+                    Please refer to our Privacy Policy for more detailed information.
                   </p>
                 </div>
               </div>
