@@ -68,3 +68,5 @@ For production deployment:
 4. Try subscribing with an email address
 5. Check the console for subscription logs
 6. Verify data is saved in `server/data/newsletter-subscriptions.json`
+
+

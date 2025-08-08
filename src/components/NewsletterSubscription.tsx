@@ -148,3 +148,5 @@ const NewsletterSubscription: React.FC<NewsletterSubscriptionProps> = ({
 };
 
 export default NewsletterSubscription;
+
+

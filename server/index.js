@@ -190,3 +190,5 @@ app.listen(PORT, () => {
   console.log(`📧 Newsletter API available at http://localhost:${PORT}/api/newsletter`);
   console.log(`🏥 Health check at http://localhost:${PORT}/api/health`);
 });
+
+
