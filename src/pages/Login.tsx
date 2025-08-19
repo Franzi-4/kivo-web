@@ -154,7 +154,8 @@ const Login = () => {
                 Continue with Google
               </Button>
             </div>
-
+          </CardContent>
+        </Card>
 
         {/* Back to Home */}
         <div className="text-center mt-6">
