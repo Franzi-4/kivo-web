@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -7,85 +7,61 @@ import { CalendarDays, Clock, User, ArrowRight, ArrowLeft } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import NewsletterSubscription from '@/components/NewsletterSubscription';
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "Dynamic Pricing in Mobile Games: What Works",
-    excerpt: "Explore proven strategies and pitfalls in AI-powered in-game pricing to maximize LTV without hurting player experience.",
-    author: "Franzi Harzheim",
-    date: "2025-07-20",
-    readTime: "6 min read",
-    category: "Monetization",
-    image: "/placeholder.svg",
-    tags: ["pricing", "AI", "LTV"]
-  },
-  {
-    id: 2,
-    title: "How AI Personalization Drives Retention",
-    excerpt: "A deep dive into how personalized offers and player behavior segmentation increase engagement in mobile games.",
-    author: "Oscar Nilsson",
-    date: "2025-07-15",
-    readTime: "5 min read",
-    category: "Retention",
-    image: "/placeholder.svg",
-    tags: ["personalization", "retention", "segments"]
-  },
-  {
-    id: 3,
-    title: "From Downloads to Dollars: Monetizing Early Users",
-    excerpt: "Your first 1000 players matter most. Here's how to optimize monetization early using behavioral signals.",
-    author: "Kivo Team",
-    date: "2025-07-12",
-    readTime: "7 min read",
-    category: "Early Stage",
-    image: "/placeholder.svg",
-    tags: ["early access", "monetization", "startup"]
-  },
-  {
-    id: 4,
-    title: "Choosing the Right Pricing Model for Your Game",
-    excerpt: "Freemium, subscription, battle pass, or hybrid? We break down which monetization models work best and why.",
-    author: "Franzi Harzheim",
-    date: "2025-07-09",
-    readTime: "8 min read",
-    category: "Strategy",
-    image: "/placeholder.svg",
-    tags: ["pricing models", "strategy", "F2P"]
-  },
-  {
-    id: 5,
-    title: "Why Most A/B Tests in Games Fail",
-    excerpt: "Learn how to design statistically sound experiments that actually help improve monetization decisions.",
-    author: "Oscar Nilsson",
-    date: "2025-07-07",
-    readTime: "6 min read",
-    category: "Data",
-    image: "/placeholder.svg",
-    tags: ["experimentation", "A/B testing", "metrics"]
-  },
-  {
-    id: 6,
-    title: "What Studios Get Wrong About Paywalls",
-    excerpt: "Common mistakes studios make when designing paywalls—and how AI can help fix them.",
-    author: "Kivo Team",
-    date: "2025-07-03",
-    readTime: "5 min read",
-    category: "UX",
-    image: "/placeholder.svg",
-    tags: ["paywalls", "UX", "monetization"]
-  }
-];
-
-const categories = ["All", "Monetization", "Retention", "Strategy", "Data", "UX", "Early Stage"];
+import { getAllBlogPosts, getCategories, getBlogPostsByCategory } from '@/lib/blog';
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = React.useState("All");
 
-  const filteredPosts =
-    selectedCategory === "All"
-      ? blogPosts
-      : blogPosts.filter((post) => post.category === selectedCategory);
+  const filteredPosts = getBlogPostsByCategory(selectedCategory);
+  const categories = getCategories();
+
+  // Update document meta tags for SEO
+  useEffect(() => {
+    // Update document title
+    document.title = "Game Monetization Insights & Tactics | Kivo Games Blog";
+    
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 'Stay ahead of the curve with expert insights on dynamic pricing, AI personalization, and growing your game revenue. Expert tips from mobile gaming professionals.');
+    
+    // Update Open Graph tags
+    updateMetaTag('og:title', 'Game Monetization Insights & Tactics | Kivo Games Blog');
+    updateMetaTag('og:description', 'Stay ahead of the curve with expert insights on dynamic pricing, AI personalization, and growing your game revenue.');
+    updateMetaTag('og:type', 'website');
+    updateMetaTag('og:url', `${window.location.origin}/blog`);
+    updateMetaTag('og:site_name', 'Kivo Games');
+    
+    // Update Twitter Card tags
+    updateMetaTag('twitter:card', 'summary_large_image');
+    updateMetaTag('twitter:title', 'Game Monetization Insights & Tactics | Kivo Games Blog');
+    updateMetaTag('twitter:description', 'Stay ahead of the curve with expert insights on dynamic pricing, AI personalization, and growing your game revenue.');
+    
+    // Update keywords
+    updateMetaTag('keywords', 'mobile game monetization, dynamic pricing, AI personalization, game revenue, player retention, mobile gaming');
+  }, []);
+
+  const updateMetaTag = (property: string, content: string) => {
+    let metaTag = document.querySelector(`meta[property="${property}"]`) || 
+                  document.querySelector(`meta[name="${property}"]`);
+    
+    if (!metaTag) {
+      metaTag = document.createElement('meta');
+      if (property.startsWith('og:')) {
+        metaTag.setAttribute('property', property);
+      } else if (property.startsWith('twitter:')) {
+        metaTag.setAttribute('name', property);
+      } else {
+        metaTag.setAttribute('name', property);
+      }
+      document.head.appendChild(metaTag);
+    }
+    metaTag.setAttribute('content', content);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -180,9 +156,15 @@ const Blog = () => {
                       ))}
                     </div>
 
-                    <Button variant="ghost" className="w-full group/btn mt-4">
-                      Read More
-                      <ArrowRight size={16} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                    <Button 
+                      variant="ghost" 
+                      className="w-full group/btn mt-4"
+                      asChild
+                    >
+                      <Link to={`/blog/${post.slug}`}>
+                        Read More
+                        <ArrowRight size={16} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
