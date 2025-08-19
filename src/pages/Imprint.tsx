@@ -28,9 +28,9 @@ const Imprint = () => {
                     <h3 className="text-lg font-medium">Company Details</h3>
                     <div className="space-y-2 text-muted-foreground">
                       <p><strong className="text-foreground">Company Name:</strong> Styx Ventures UG (haftungsbeschränkt)</p>
-                      <p><strong className="text-foreground">Registration Number:</strong> HRB [Your Number]</p>
-                      <p><strong className="text-foreground">VAT ID:</strong> DE[Your VAT Number]</p>
-                      <p><strong className="text-foreground">Commercial Register:</strong> Amtsgericht Berlin (Charlottenburg)</p>
+                      <p><strong className="text-foreground">Registration Number:</strong> HRB 29172</p>
+                      <p><strong className="text-foreground">Commercial Register:</strong> Amtsgericht Bonn</p>
+                      <p><strong className="text-foreground">Legal Form:</strong> Unternehmergesellschaft (haftungsbeschränkt)</p>
                     </div>
                   </div>
                   
@@ -43,8 +43,7 @@ const Imprint = () => {
                         53902 Bad Münstereifel<br />
                         Germany
                       </p>
-                      <p><strong className="text-foreground">Email:</strong> legal@styxventures.com</p>
-                      <p><strong className="text-foreground">Phone:</strong> +49 [Your Phone Number]</p>
+                      <p><strong className="text-foreground">Email:</strong> hi@kivogames.com</p>
                     </div>
                   </div>
                 </div>
@@ -102,6 +101,19 @@ const Imprint = () => {
                       require the written consent of the respective author or creator.
                     </p>
                   </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-medium text-foreground mb-2">Online Dispute Resolution</h3>
+                    <p>
+                      The European Commission provides a platform for online dispute resolution (OS): 
+                      <a href="https://ec.europa.eu/consumers/odr" className="text-primary hover:underline ml-1">
+                        https://ec.europa.eu/consumers/odr
+                      </a>
+                    </p>
+                    <p className="mt-2">
+                      We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.
+                    </p>
+                  </div>
                 </div>
               </div>
               
@@ -114,7 +126,7 @@ const Imprint = () => {
                     This data will not be disclosed to third parties without your explicit consent.
                   </p>
                   <p className="mt-4">
-                    Please refer to our Privacy Policy for more detailed information.
+                    Please refer to our <a href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</a> for more detailed information.
                   </p>
                 </div>
               </div>
