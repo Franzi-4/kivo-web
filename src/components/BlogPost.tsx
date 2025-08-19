@@ -179,9 +179,11 @@ const BlogPost = () => {
         </section>
 
         {/* Article Content */}
-        <article className="py-16 px-6 md:px-12">
+        <article className="py-16 px-6 md:px-12 bg-background">
           <div className="max-w-4xl mx-auto">
-            <MarkdownRenderer content={post.content} />
+            <div className="bg-card rounded-lg border border-border/5 shadow-sm p-8 md:p-12">
+              <MarkdownRenderer content={post.content} />
+            </div>
 
             <Separator className="my-12" />
 
