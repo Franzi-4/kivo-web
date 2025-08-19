@@ -155,15 +155,6 @@ const Login = () => {
               </Button>
             </div>
 
-            {/* Sign Up Link */}
-            <div className="mt-6 text-center text-sm">
-              <span className="text-muted-foreground">Don't have an account? </span>
-              <button className="text-primary hover:text-primary/80 font-medium">
-                Sign up
-              </button>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Back to Home */}
         <div className="text-center mt-6">
