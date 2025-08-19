@@ -17,6 +17,7 @@ Mobile games in 2025 no longer rely on single-item purchases. Instead, the most 
 Bundle psychology is the science of designing item packs that feel irresistible by leveraging cognitive biases, perceived value, and player motivation. When combined with sequential offers, studios can **increase ARPPU by 40–60%**.
 
 ## Cross-Reference Reading
+
 Bundle strategies work best when integrated with broader monetization approaches:
 - [Dynamic Pricing Optimization](/blog/dynamic-pricing-mobile-games) - Adjust bundle prices based on player behavior
 - [AI-Driven Monetization Systems](/blog/beyond-ads-ai-monetization) - Build comprehensive revenue frameworks

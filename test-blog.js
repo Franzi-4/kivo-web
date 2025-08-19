@@ -17,3 +17,4 @@ const testBlogPosts = [
 
 console.log('Test blog posts:', testBlogPosts);
 console.log('Categories:', ["All", "Test"]);
+

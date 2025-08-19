@@ -150,11 +150,11 @@ const NewsletterSubscription: React.FC<NewsletterSubscriptionProps> = memo(({
           type="submit" 
           size="lg"
           className={`px-8 h-12 font-semibold text-base transition-all duration-300 transform
-            bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 
-            hover:from-blue-700 hover:via-purple-700 hover:to-blue-800
+            bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 
+            hover:from-gray-700 hover:via-gray-800 hover:to-gray-900
             hover:scale-105 hover:shadow-lg active:scale-95
             disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
-            focus:ring-4 focus:ring-blue-300 focus:outline-none
+            focus:ring-4 focus:ring-gray-300 focus:outline-none
             relative overflow-hidden group
             ${isSubmitting ? 'cursor-not-allowed' : 'cursor-pointer'}
           `}
@@ -164,7 +164,7 @@ const NewsletterSubscription: React.FC<NewsletterSubscriptionProps> = memo(({
           aria-label={isSubmitting ? 'Subscribing to newsletter...' : 'Subscribe to newsletter'}
         >
           {/* Animated background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           
           {/* Button content */}
           <div className="relative flex items-center justify-center">
