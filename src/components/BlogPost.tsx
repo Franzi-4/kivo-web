@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
-import { CalendarDays, Clock, User, ArrowLeft, Share2, Twitter, Linkedin, Facebook } from 'lucide-react';
+import { CalendarDays, Clock, User, ArrowLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -123,29 +123,7 @@ const BlogPost = () => {
     return <Navigate to="/blog" replace />;
   }
 
-  const shareUrl = `${window.location.origin}/blog/${post.slug}`;
-  const shareText = `Check out this article: ${post.title}`;
 
-  const shareLinks = [
-    {
-      name: 'Twitter',
-      icon: Twitter,
-      url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`,
-      color: 'hover:text-blue-500'
-    },
-    {
-      name: 'LinkedIn',
-      icon: Linkedin,
-      url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
-      color: 'hover:text-blue-600'
-    },
-    {
-      name: 'Facebook',
-      icon: Facebook,
-      url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
-      color: 'hover:text-blue-700'
-    }
-  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -195,26 +173,6 @@ const BlogPost = () => {
                   <User size={16} />
                   <span>{post.author}</span>
                 </div>
-
-                <div className="flex items-center gap-2">
-                  <Share2 size={16} className="text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">Share:</span>
-                  {shareLinks.map((link) => {
-                    const Icon = link.icon;
-                    return (
-                      <a
-                        key={link.name}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`p-2 rounded-full transition-colors ${link.color}`}
-                        aria-label={`Share on ${link.name}`}
-                      >
-                        <Icon size={16} />
-                      </a>
-                    );
-                  })}
-                </div>
               </div>
             </div>
           </div>
@@ -240,9 +198,7 @@ const BlogPost = () => {
             <div className="bg-card rounded-lg p-6 border border-border">
               <h3 className="text-lg font-semibold mb-2">About the Author</h3>
               <p className="text-muted-foreground">
-                {post.author === "Franzi Harzheim" && 
-                  "Franzi is a game monetization expert with over 8 years of experience in mobile gaming. She specializes in AI-driven pricing strategies and player psychology."
-                }
+
                 {post.author === "Oscar Nilsson" && 
                   "Oscar is a data scientist and retention specialist who has helped dozens of studios improve their player engagement through AI personalization."
                 }

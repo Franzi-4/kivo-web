@@ -72,10 +72,6 @@ const HeroSection = () => {
                   <div className="h-8 w-8 rounded-full bg-muted/60 border-2 border-card"></div>
                   <div className="h-8 w-8 rounded-full bg-muted/40 border-2 border-card flex items-center justify-center text-xs text-foreground">+3</div>
                 </div>
-                
-                <div className="h-8 px-3 rounded-md bg-muted flex items-center justify-center text-foreground text-sm">
-                  Share
-                </div>
               </div>
             </div>
             
