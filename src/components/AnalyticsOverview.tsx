@@ -48,7 +48,7 @@ const AnalyticsOverview = () => {
   // Player segment data
   const segmentData = [
     { name: 'Whales (1%)', value: 45000, percentage: 36, color: '#6b7280' },
-    { name: 'Mid-Spenders (5%)', value: 52000, percentage: 42, color: '#9ca3af' },
+    { name: 'Dolphins(5%)', value: 52000, percentage: 42, color: '#9ca3af' },
     { name: 'Casual (94%)', value: 27892, percentage: 22, color: '#d1d5db' }
   ];
 
@@ -123,16 +123,16 @@ const AnalyticsOverview = () => {
                     type="monotone" 
                     dataKey="revenue" 
                     stackId="1"
-                    stroke="#10b981" 
-                    fill="#10b981" 
+                    stroke="#6b7280" 
+                    fill="#6b7280" 
                     fillOpacity={0.3}
                   />
                   <Area 
                     type="monotone" 
                     dataKey="players" 
                     stackId="2"
-                    stroke="#3b82f6" 
-                    fill="#3b82f6" 
+                    stroke="#9ca3af" 
+                    fill="#9ca3af" 
                     fillOpacity={0.3}
                   />
                 </AreaChart>
