@@ -14,6 +14,10 @@ const Blog = () => {
 
   const filteredPosts = getBlogPostsByCategory(selectedCategory);
   const categories = getCategories();
+  
+  // Debug logging
+  console.log('Blog posts:', filteredPosts);
+  console.log('Categories:', categories);
 
   // Update document meta tags for SEO
   useEffect(() => {
@@ -112,8 +116,14 @@ const Blog = () => {
         {/* Blog Posts Grid */}
         <section className="py-16 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post) => (
+            {filteredPosts.length === 0 ? (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground text-lg">No blog posts found for the selected category.</p>
+                <p className="text-sm text-muted-foreground mt-2">Check the console for debugging information.</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredPosts.map((post) => (
                 <Card key={post.id} className="cosmic-card hover:scale-105 transition-transform duration-300 group">
                   <CardHeader className="space-y-3">
                     <div className="flex items-center justify-between">
@@ -168,8 +178,9 @@ const Blog = () => {
                     </Button>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 

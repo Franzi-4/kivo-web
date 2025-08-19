@@ -1,3 +1,10 @@
+// Blog posts loaded from markdown files with cross-references for SEO optimization
+export interface RelatedPost {
+  slug: string;
+  title: string;
+  relevanceScore: number; // 0-1 indicating how related it is
+}
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -10,6 +17,9 @@ export interface BlogPost {
   tags: string[];
   content: string;
   slug: string;
+  relatedPosts?: RelatedPost[];
+  seoKeywords?: string[];
+  metaDescription?: string;
 }
 
 // This would normally be imported from gray-matter
@@ -48,30 +58,6 @@ const parseFrontmatter = (content: string) => {
   
   return { metadata, content: markdownContent };
 };
-
-// Blog posts loaded from markdown files with cross-references for SEO optimization
-export interface RelatedPost {
-  slug: string;
-  title: string;
-  relevanceScore: number; // 0-1 indicating how related it is
-}
-
-export interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  author: string;
-  date: string;
-  readTime: string;
-  category: string;
-  image: string;
-  tags: string[];
-  content: string;
-  slug: string;
-  relatedPosts?: RelatedPost[];
-  seoKeywords?: string[];
-  metaDescription?: string;
-}
 
 // Comprehensive blog posts data with SEO optimization and cross-references
 export const blogPosts: BlogPost[] = [
