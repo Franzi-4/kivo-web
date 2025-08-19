@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Logo from './Logo';
-import { Menu, X, CircleDot, Calendar, Sun, Moon, BookOpen } from 'lucide-react';
+import { Menu, X, CircleDot, Calendar, Sun, Moon, BookOpen, Lock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Switch } from '@/components/ui/switch';
 import { Link, useLocation } from 'react-router-dom';
@@ -148,6 +148,15 @@ const Header = () => {
                 <BookOpen size={16} className="inline-block mr-1.5" /> Blog
               </Link>
               
+              {/* Login button for mobile */}
+              <Link 
+                to="/login" 
+                className="px-3 py-2 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Lock size={16} className="inline-block mr-1.5" /> Log in
+              </Link>
+              
               {/* Add theme toggle for mobile */}
               <div className="flex items-center justify-between px-3 py-2">
                 <span className="text-sm text-muted-foreground">Theme</span>
@@ -177,7 +186,9 @@ const Header = () => {
             <Sun size={18} className={`${!isDarkMode ? 'text-primary' : 'text-muted-foreground'}`} />
           </div>
           <div className="rounded-2xl">
-            <Button variant="ghost" className="text-muted-foreground hover:text-foreground hover:bg-muted">Log in</Button>
+            <Link to="/login">
+              <Button variant="ghost" className="text-muted-foreground hover:text-foreground hover:bg-muted">Log in</Button>
+            </Link>
           </div>
         </div>
       </header>
