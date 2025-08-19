@@ -18,6 +18,7 @@ const Blog = () => {
   // Debug logging
   console.log('Blog posts:', filteredPosts);
   console.log('Categories:', categories);
+  console.log('Raw getAllBlogPosts:', getAllBlogPosts());
 
   // Update document meta tags for SEO
   useEffect(() => {
